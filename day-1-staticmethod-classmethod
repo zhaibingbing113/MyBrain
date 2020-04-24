@@ -1,0 +1,31 @@
+The staticmethod and classmethod(类方法和静态方法）
+
+类方法：
+类方法以cls为输入变量：
+class Student(object):
+    def __init__(self, name: str, year: int, sex: str):
+        self.name = name
+        self.year = year
+        self.sex = sex
+        self.all = {}
+    def __repr__(self):
+        return f"{self.__class__.__name__} has one name: {self.name} and sex: {self.sex}"
+       
+    @classmethod
+    def run(cls):
+        return cls("poly",1990,"male")
+        
+    @property
+    def getstu(self):
+        return self
+    
+    @getstu.setter
+    def getstu(self, child):
+        try:
+            child_name, child_barcode = child
+        except ValueError:
+            print("The input is wrong")
+        self.all[child_barcode] = child_name
+        
+  
+            
